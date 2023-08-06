@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>pydeck</title>
+        <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <script src='https://cdn.jsdelivr.net/npm/@deck.gl/jupyter-widget@~8.8.*/dist/index.js'></script>
+    <style>
+    body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#deck-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+#deck-container canvas {
+  z-index: 1;
+  background: none;
+}
+    </style>
+  </head>
+  <body>
+    <div id="deck-container">
+    </div>
+  </body>
+  <script>
+    const container = document.getElementById('deck-container');
+    const jsonInput = {
+  "initialViewState": {
+    "latitude": -21.861556249999996,
+    "longitude": -46.9079625,
+    "width": 1390,
+    "zoom": 7.2
+  },
+  "layers": [
+    {
+      "@@type": "HeatmapLayer",
+      "aggregation": "MEAN",
+      "colorRange": [
+        [
+          240,
+          249,
+          232
+        ],
+        [
+          204,
+          235,
+          197
+        ],
+        [
+          168,
+          221,
+          181
+        ],
+        [
+          123,
+          204,
+          196
+        ],
+        [
+          67,
+          162,
+          202
+        ],
+        [
+          8,
+          104,
+          172
+        ]
+      ],
+      "data": [
+        {
+          "Interna\u00e7\u00f5es": 1,
+          "Munic\u00edpio": "350870 Caconde",
+          "lat": -21.5323,
+          "lon": -46.6499
+        },
+        {
+          "Interna\u00e7\u00f5es": 0,
+          "Munic\u00edpio": "351080 Casa Branca",
+          "lat": -21.7701,
+          "lon": -47.0919
+        },
+        {
+          "Interna\u00e7\u00f5es": 1,
+          "Munic\u00edpio": "351390 Divinol\u00e2ndia",
+          "lat": -21.6562,
+          "lon": -46.7411
+        },
+        {
+          "Interna\u00e7\u00f5es": 5,
+          "Munic\u00edpio": "351518 Esp\u00edrito Santo do Pinhal",
+          "lat": -22.1832,
+          "lon": -46.7624
+        },
+        {
+          "Interna\u00e7\u00f5es": 0,
+          "Munic\u00edpio": "352260 Itapira",
+          "lat": -22.4363,
+          "lon": -46.8222
+        },
+        {
+          "Interna\u00e7\u00f5es": 13,
+          "Munic\u00edpio": "353050 Mococa",
+          "lat": -21.4708,
+          "lon": -47.0006
+        },
+        {
+          "Interna\u00e7\u00f5es": 0,
+          "Munic\u00edpio": "353070 Mogi Gua\u00e7u",
+          "lat": -22.3708,
+          "lon": -46.9378
+        },
+        {
+          "Interna\u00e7\u00f5es": 0,
+          "Munic\u00edpio": "353080 Mogi Mirim",
+          "lat": -22.432,
+          "lon": -46.9582
+        },
+        {
+          "Interna\u00e7\u00f5es": 0,
+          "Munic\u00edpio": "354630 Santa Cruz das Palmeiras",
+          "lat": -21.8135,
+          "lon": -47.2563
+        },
+        {
+          "Interna\u00e7\u00f5es": 13,
+          "Munic\u00edpio": "354910 S\u00e3o Jo\u00e3o da Boa Vista",
+          "lat": -21.9695,
+          "lon": -46.7989
+        },
+        {
+          "Interna\u00e7\u00f5es": 4,
+          "Munic\u00edpio": "354970 S\u00e3o Jos\u00e9 do Rio Pardo",
+          "lat": -21.5958,
+          "lon": -46.8896
+        },
+        {
+          "Interna\u00e7\u00f5es": 2,
+          "Munic\u00edpio": "355080 S\u00e3o Sebasti\u00e3o da Grama",
+          "lat": -21.7151,
+          "lon": -46.8232
+        },
+        {
+          "Interna\u00e7\u00f5es": 2,
+          "Munic\u00edpio": "355330 Tamba\u00fa",
+          "lat": -21.7023,
+          "lon": -47.2814
+        },
+        {
+          "Interna\u00e7\u00f5es": 1,
+          "Munic\u00edpio": "355360 Tapiratiba",
+          "lat": -21.4656,
+          "lon": -46.7527
+        },
+        {
+          "Interna\u00e7\u00f5es": 0,
+          "Munic\u00edpio": "355640 Vargem Grande do Sul",
+          "lat": -21.8357,
+          "lon": -46.8806
+        },
+        {
+          "Interna\u00e7\u00f5es": 42,
+          "Munic\u00edpio": "Total",
+          "lat": -21.8357,
+          "lon": -46.8806
+        }
+      ],
+      "getPosition": "@@=[lon, lat]",
+      "getWeight": "@@=Interna\u00e7\u00f5es",
+      "id": "8958153f-33a3-457e-b818-f33f5cd7efb2",
+      "opacity": 1.5,
+      "pickable": true,
+      "threshold": 1
+    },
+    {
+      "@@type": "HeatmapLayer",
+      "aggregation": "MEAN",
+      "data": [
+        {
+          "Interna\u00e7\u00f5es": 0,
+          "Munic\u00edpio": "350100 Altin\u00f3polis",
+          "lat": -21.0239,
+          "lon": -47.3727
+        },
+        {
+          "Interna\u00e7\u00f5es": 3,
+          "Munic\u00edpio": "350590 Batatais",
+          "lat": -20.8916,
+          "lon": -47.5856
+        },
+        {
+          "Interna\u00e7\u00f5es": 3,
+          "Munic\u00edpio": "350940 Cajuru",
+          "lat": -21.2753,
+          "lon": -47.3048
+        },
+        {
+          "Interna\u00e7\u00f5es": 0,
+          "Munic\u00edpio": "351310 Cravinhos",
+          "lat": -21.34,
+          "lon": -47.7295
+        },
+        {
+          "Interna\u00e7\u00f5es": 2,
+          "Munic\u00edpio": "351860 Guariba",
+          "lat": -21.3607,
+          "lon": -48.2282
+        },
+        {
+          "Interna\u00e7\u00f5es": 5,
+          "Munic\u00edpio": "352430 Jaboticabal",
+          "lat": -21.2554,
+          "lon": -48.3224
+        },
+        {
+          "Interna\u00e7\u00f5es": 4,
+          "Munic\u00edpio": "352510 Jardin\u00f3polis",
+          "lat": -21.018,
+          "lon": -47.7645
+        },
+        {
+          "Interna\u00e7\u00f5es": 3,
+          "Munic\u00edpio": "353130 Monte Alto",
+          "lat": -21.2616,
+          "lon": -48.4966
+        },
+        {
+          "Interna\u00e7\u00f5es": 1,
+          "Munic\u00edpio": "353950 Pitangueiras",
+          "lat": -20.9981,
+          "lon": -48.2155
+        },
+        {
+          "Interna\u00e7\u00f5es": 0,
+          "Munic\u00edpio": "354020 Pontal",
+          "lat": -21.0231,
+          "lon": -48.0377
+        },
+        {
+          "Interna\u00e7\u00f5es": 22,
+          "Munic\u00edpio": "354340 Ribeir\u00e3o Preto",
+          "lat": -21.1767,
+          "lon": -47.8208
+        },
+        {
+          "Interna\u00e7\u00f5es": 0,
+          "Munic\u00edpio": "354750 Santa Rita do Passa Quatro",
+          "lat": -21.7312,
+          "lon": -47.4959
+        },
+        {
+          "Interna\u00e7\u00f5es": 4,
+          "Munic\u00edpio": "354760 Santa Rosa de Viterbo",
+          "lat": -21.4703,
+          "lon": -47.3621
+        },
+        {
+          "Interna\u00e7\u00f5es": 0,
+          "Munic\u00edpio": "354790 Santo Ant\u00f4nio da Alegria",
+          "lat": -21.0869,
+          "lon": -47.1501
+        },
+        {
+          "Interna\u00e7\u00f5es": 2,
+          "Munic\u00edpio": "355090 S\u00e3o Sim\u00e3o",
+          "lat": -21.4781,
+          "lon": -47.5507
+        },
+        {
+          "Interna\u00e7\u00f5es": 0,
+          "Munic\u00edpio": "355150 Serrana",
+          "lat": -21.2114,
+          "lon": -47.5964
+        },
+        {
+          "Interna\u00e7\u00f5es": 16,
+          "Munic\u00edpio": "355170 Sert\u00e3ozinho",
+          "lat": -21.1434,
+          "lon": -48.007
+        },
+        {
+          "Interna\u00e7\u00f5es": 65,
+          "Munic\u00edpio": "Total",
+          "lat": -21.1434,
+          "lon": -48.007
+        }
+      ],
+      "getPosition": "@@=[lon, lat]",
+      "getWeight": "@@=Interna\u00e7\u00f5es",
+      "id": "a3ecc9f4-d726-4024-9e05-5e384fec1e4b",
+      "opacity": 1.5,
+      "pickable": true,
+      "threshold": 0.75
+    }
+  ],
+  "mapProvider": "mapbox",
+  "mapStyle": "https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json",
+  "mapboxKey": "",
+  "views": [
+    {
+      "@@type": "MapView",
+      "controller": true
+    }
+  ]
+};
+    const tooltip = {'text': 'Concentração de Internações DRS XIII em azul, Concentração de Internações DRS XIV em laranja'};
+    const customLibraries = null;
+    const configuration = null;
+
+    const deckInstance = createDeck({
+                  container,
+      jsonInput,
+      tooltip,
+      customLibraries,
+      configuration
+    });
+
+  </script>
+</html>
